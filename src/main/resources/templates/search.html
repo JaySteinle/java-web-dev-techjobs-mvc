@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head">
-</head>
+<head th:replace="fragments :: head"></head>
+
 <body>
 
 <div th:replace="fragments :: page-header"></div>
@@ -38,7 +38,16 @@
 
     <!-- TODO #4 - Loop over the search results to display all job fields. -->
 
-</div>
+    <table class="centeredTable">
+        <tr>
+            <td th:each="category : ${tableChoices}">
+                <ul>
+                    <li th:each="item : ${category.value}" th:text="${item}"></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
 
+</div>
 </body>
 </html>
